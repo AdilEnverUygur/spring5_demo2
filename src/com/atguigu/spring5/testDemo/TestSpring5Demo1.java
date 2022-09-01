@@ -1,5 +1,6 @@
 package com.atguigu.spring5.testDemo;
 
+import com.atguigu.spring5.autowire.Emp;
 import com.atguigu.spring5.bean.Orders;
 import com.atguigu.spring5.collectionType.Book;
 import com.atguigu.spring5.collectionType.Course;
@@ -48,5 +49,13 @@ public class TestSpring5Demo1 {
 
         //手动让bean实例销毁
         context.close();
+    }
+
+    @Test
+    public void test4(){
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("bean5.xml");
+        Emp emp = context.getBean("emp", Emp.class);
+        System.out.println(emp);
     }
 }
